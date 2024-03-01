@@ -1,25 +1,27 @@
 // import properties from "@/properties.json";
 import PropertyCard from "@/components/PropertyCard";
+import { fetchProperties } from "@/utils/requests";
 import Link from "next/link";
 
-async function fetchProperties() {
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/properties`);
-    // const res = await fetch("http://localhost:3000/api/properties");
-    // console.log(res);
+// async function fetchProperties() {
+//   try {
+//     const res = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/properties`);
+//     // const res = await fetch("http://localhost:3000/api/properties");
+//     // console.log(res);
 
-    if (!res.ok) {
-      throw new Error("Failed to fetch data");
-    }
+//     if (!res.ok) {
+//       throw new Error("Failed to fetch data");
+//     }
 
-    const jsonData = await res.json();
-    return jsonData;
-  } catch (error) {
-    console.log(error);
-  }
-}
+//     const jsonData = await res.json();
+//     return jsonData;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
 
 const HomeProperties = async () => {
+  // const properties = await fetchProperties();
   const properties = await fetchProperties();
 
   const recentProperties = properties
